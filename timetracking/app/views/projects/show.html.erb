@@ -1,0 +1,17 @@
+<h2><%= @project.name %></h2>
+<p>Created at: <%= @project.created_at %></p>
+<p><%= @project.description %></p>
+
+<%= link_to "Edit Project", edit_project_path(@project), title: "Edit project" %>
+
+<%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: 'Are you sure?'}, title: "delete project" %>
+
+<%= link_to "View entries", project_entries_path(@project), title: "View project entries" %>
+
+<% if @people.size != 0 %>
+	<ul class="list-group"><h3>People Working on this Project</h3>
+	<% @people.each do |person| %>
+		<li class="list-group-item"><%= link_to person.name, person_path(person) %></li>
+	<% end %>
+	</ul>
+<% end %>

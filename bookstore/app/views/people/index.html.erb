@@ -1,0 +1,11 @@
+<div class="container">
+<h1>Hi, <%= @person.name %>! Welcome to the Book Store</h1>
+</div>
+
+<div class="container">
+	<% @books.each do |book| %>
+	<div>
+	<h3><%= book.title %></h3>	
+	</div>
+	<% end %>
+</div>

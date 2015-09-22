@@ -1,0 +1,23 @@
+<h1><%= @person.name %>'s Projects</h1>
+
+<ul class="list-group">
+<% @person.projects.each do |project| %>
+	<li class="list-group-item">
+	<%= link_to project.name, project_path(project) %> - 
+
+	<%= link_to "Retire project", remove_project_path(@person, project), method: :delete, title: "Retire from project" %>
+	</li>
+<% end %>
+</ul>
+
+<h3>Add Projects</h3>
+<% if @other_projects.size != 0 %>
+	<%= form_tag(add_project_path) do %>
+	<%= select_tag(:project_id, options_from_collection_for_select(@other_projects, :id, :name)) %>
+	<%= submit_tag "add project" %>
+	<% end %>
+<% else %>
+	<p>No more projects to add.</p>
+<% end %>
+
+

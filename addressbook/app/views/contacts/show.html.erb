@@ -1,0 +1,23 @@
+<h2><%= @contact.name %> 
+	<% if @contact.surname != nil %><%= @contact.surname %><% end %>
+</h2>
+
+
+<% if @contact.address != nil %>
+	<h3>Address</h3>
+	<p><%= @contact.address %></p>
+<% end %>
+
+<% if @contact.telephones.size != 0 %>
+	<h3>Telephone</h3>
+	<% @contact.telephones.each do |phone| %>
+		<p><%= phone.phone_number %></p>
+	<% end %>
+<% end %>
+
+<% if @contact.emails.size != 0 %>
+	<h3>Email</h3>
+	<% @contact.emails.each do |email| %>
+		<p><%= email.email_address %></p>
+	<% end %>
+<% end %>

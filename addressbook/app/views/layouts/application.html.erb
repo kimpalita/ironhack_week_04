@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Addressbook</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Address Book</a>
+        <ul>
+          <li><%= link_to "Home", home_path, title: "home" %></li>
+          <li><%= link_to "Contacts", all_contacts_path, title: "all contacts" %></li>
+        </ul>    
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="container">
+	<%= yield %>
+</div>
+
+<footer class="footer">
+    <div class="container">
+    <ul class="letter-index"><h4>Seach by letter</h4>
+      <% ('a'..'z').each do |letter|%>
+        <li><%= link_to letter, contacts_letter_index_path(letter), title: "Contact "+letter %></li>
+      <% end %>
+    </ul>
+        <p class="text-muted">Ironhack - Address Book Project by Kim Wienands</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div class="container">
+	<h2>All Books</h2>
+</div>
+
+<% @books.each do |book| %>
+
+<div class="container">
+	<h4><%= book.title %></h4>
+	<p>Price: $<%= book.price %></p>
+	<p><%= book.description %></p>
+</div>
+
+<% end %>

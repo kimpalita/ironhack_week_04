@@ -1,0 +1,17 @@
+<h2>My Projects</h2>
+
+<ul class="list-group">
+	<% @projects.each do | project | %>
+		<li class="list-group-item">
+			<%= link_to "<strong>#{project.name}</strong>".html_safe, project_path(project), class: 'project', id: "project-#{project.id}", title: project.name %>
+			
+			<div class="hours_log">
+			<%= link_to "Logged this month: <strong>#{pluralize(project.total_hours_this_month, 'hr', 'hrs')}</strong>".html_safe, project_entries_path(project), title: "#{project.total_hours_this_month} hours logged" %>
+			</div><br>
+			<%= link_to "Edit Project", edit_project_path(project), title: "Edit project" %> - 
+			<%= link_to "Delete", project_path(project), method: :delete, data: {confirm: 'Are you sure?'}, title: "delete project" %>
+		</li>
+	<% end %>
+</ul>
+
+<%= button_to "Add new project", new_project_path, :method => "get", title: "Create new project" %>

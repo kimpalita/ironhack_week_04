@@ -1,0 +1,19 @@
+<div class="container">
+	<h1>Login Page</h1>
+</div>
+
+<div class="container">
+
+<%= form_tag(verify_account_path(:name, :email)) do %>
+  <%= label_tag("Name") %>
+  <%= text_field_tag(:name) %>
+
+  <%= label_tag("Email") %>
+  <%= text_field_tag(:email) %>
+
+  <%= submit_tag("Login") %>
+<% end %>
+
+<%= link_to "Back", books_path, title: "back" %>
+
+</div>

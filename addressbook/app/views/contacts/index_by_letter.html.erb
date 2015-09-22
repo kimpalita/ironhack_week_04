@@ -1,0 +1,12 @@
+<h1>Contacts: <%= @first_letter_upcase %></h1>
+ 
+ <ul class="list-group">
+<% @contacts.each do |contact| %>
+	<li class="list-group-item">
+		<%= link_to contact.name, contact_path(contact.id, contact.name), title: "show contact details for"+contact.name %>
+		<% if contact.surname != nil %>
+			<%= " #{contact.surname}" %>
+		<% end %>
+	</li>
+<% end %>
+</ul>

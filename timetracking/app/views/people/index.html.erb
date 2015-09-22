@@ -1,0 +1,21 @@
+<h1>List of People</h1>
+
+<ul class="list-group">
+	<% @people.each do |person| %>
+		<li class="list-group-item">
+		<%= link_to person.name, person_path(person) %>
+		<% if person.email != "" %>
+			(<%= person.email %>)
+		<% end %>
+		
+		<%= link_to "Edit", edit_person_path(person), title: "Edit person" %>
+
+		<%= link_to "Delete", person_path(person), method: :delete, data: {confirm: 'Are you sure?'}, title: "delete person" %>
+
+		</li>
+	<% end %>
+
+	<%= button_to "New Person", new_person_path, method: :get %>
+	
+
+</ul>

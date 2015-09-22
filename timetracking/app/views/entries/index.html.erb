@@ -1,0 +1,18 @@
+<h2><%= @project.name %></h2>
+<p><%= @project.description %></p>
+
+<ul class="list-group"><h3>Entries</h3>
+	<% @entries.each do | entry | %>
+		<li class="list-group-item">	
+			<strong><%= entry.date.to_date.to_s(:long) %></strong><br>
+			<%= entry.hours %> hrs <%= entry.minutes %> mins<br>
+			<%= entry.comments %><br>
+			<%= link_to "Edit", edit_project_entry_path(@project, entry), title: "edit entry" %> - 
+			<%= link_to "Delete", project_entry_path(@project, entry),
+								  method: :delete, data: {confirm: 'Are you sure?'}, title: "delete entry" %>
+		</li>
+	<% end %>
+</ul>
+
+<%= link_to "Add new entry", new_project_entry_path, title: "add new entry" %>
+<%= link_to "Back", projects_path, title: "back" %>
