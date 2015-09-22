@@ -1,0 +1,28 @@
+<div class="container">
+<h1><%= @concert.band %></h1>
+<ul>
+	<li>Date: <%= @concert.date %></li>
+	<li>Venue: <%= @concert.venue %></li>
+	<li>Price: €<%= @concert.price %></li>
+	<li>Description: <%= @concert.description %></li>
+</ul>
+
+<div class="comments">
+	<h2>Comments (<%= @concert.comments.size %>)</h2>
+	<% @comments.each do |comment| %>
+		<div class="comment">
+			<p><%= comment.comment_text %></p>
+		</div>
+	<% end %>
+</div>
+
+
+	<div class="add-comment">
+		<h3>Add Comment</h3>
+		<%= form_tag(add_comment_path(@concert)) do %>
+		<%= text_area :comment_text, :text, cols: 80 %>
+		<%= submit_tag "Submit" %>
+		<% end %>
+	</div>
+
+</div>

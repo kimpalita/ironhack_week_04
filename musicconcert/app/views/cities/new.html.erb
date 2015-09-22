@@ -1,0 +1,23 @@
+<div class="container">
+
+<h1>New City Form</h1>
+
+<% if @city.errors.any? %>
+	<ul class="error-messages">
+		<% @city.errors.full_messages.each do |error_msg| %>
+			<li><%= error_msg %></li>
+		<% end %>	
+	</ul>
+<% end %>
+
+<%= form_for [@city] do |f| %>
+
+	<%= f.label :city_name %>
+	<%= f.text_field :city_name %>
+
+	<%= f.submit('Add City') %>
+<% end %>
+
+<%= link_to "Cancel", cities_path, title: "Cancel" %>
+
+</div>

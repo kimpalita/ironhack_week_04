@@ -1,0 +1,6 @@
+<h2>How much are you willing to spend?</h2>
+<%= form_tag(concerts_search_price_path, method: "get") do %>
+  <%= label_tag(:price_budget, "Spending Limit (€)") %>
+  <%= number_field_tag(:price_budget) %>
+  <%= submit_tag("Search") %>
+<% end %>

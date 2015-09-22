@@ -1,0 +1,7 @@
+<ul class="list-group"><h2>Popular Concerts</h2>
+<% @concerts_popular.each do |concert| %>
+	<li class="list-group-item">
+		<%= link_to concert.band, concert_path(concert) %>
+	</li>
+<% end %>
+</ul>

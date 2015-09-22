@@ -1,0 +1,33 @@
+<div class="container">
+
+<% if @concerts_today.size != 0 %>
+	<div class="jumbotron happening-today">
+		<h1>Happening Today!</h1>
+			<% @concerts_today.each do |concert_today| %>
+		
+		  		<h2><%= concert_today.band %></h2>
+		 		<p><%= link_to "More Details", concert_path(concert_today), title: "today's concert details", class: "btn btn-primary btn-lg" %></p>
+		 		<hr>
+			<% end %>
+	</div>
+<% end %>
+
+<ul class="list-group"><h2>Later this month:</h2>
+<% @concerts_later_this_month.each do |concert| %>
+	<li class="list-group-item">
+		<%= link_to concert.band, concert_path(concert) %>
+	</li>
+<% end %>
+</ul>
+
+
+<ul class="list-group"><h2>Past Concerts:</h2>
+<% @concerts_past.each do |concert| %>
+	<li class="list-group-item">
+		<%= link_to concert.band, concert_path(concert) %>
+	</li>
+<% end %>
+</ul>
+
+
+</div>
